@@ -1,25 +1,27 @@
 import Products from './product/Products'
+import Cart from './product/Cart'
 import {useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
-export default function Home(){
+export default function Home({match}){
     const [cart,setCart] = useState([]);
 
 
     const addToCart = (data) => {
         let newData = cart.findIndex((product) => {
-                return product.id == data.id
+                return product.id === data.id
         });
-        if(newData == -1){
+        if(newData === -1){
             setCart((cartData) => (
                 [...cartData, {
                     id: data.id,
                     title : data.title,
+                    price : data.price,
                     quantity: 1
                 }]
             ))
         }else{
            let existingProduct =  cart.findIndex((product) => (
-               product.id == data.id
+               product.id === data.id
            ))
            cart[existingProduct].quantity += 1;
            setCart(cart)
@@ -28,8 +30,8 @@ export default function Home(){
 
 
     useEffect(() => {
-        console.log(cart);
-    },[cart])
+        console.log(match.path);
+    },[cart,match])
 
 
  return  (
@@ -41,7 +43,15 @@ export default function Home(){
                  Cart item {cart.length}
                  </Link>
              </button>
-            <Products addToCart={addToCart}/>
+        
+             
+          {match.path === '/' &&    <Products addToCart={addToCart}/> }
+                
+            
+           {match.path === '/cart'   &&  <Cart cart={cart}/> }
+              
+            
+           
          </div>
      </div>
  )

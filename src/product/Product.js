@@ -6,7 +6,7 @@ export default function Product(){
     const [product,setProduct] = useState([])
   
     useEffect(() => {
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`).then((res) => {
+        axios.get(`https://fakestoreapi.com/products/${id}`).then((res) => {
             setProduct(res.data)
             console.log(res.data);
         })
@@ -15,8 +15,13 @@ export default function Product(){
  return (
      <div>
         <div className='container'>
-        <h2>{product.title}</h2>
-         <p>{product.body}</p>
+           <div className="row">
+             <div className="col-12 mt-5">
+                 <img src={product.image} alt=""  className='img-fluid h-25 w-25'/>
+                 <h2>{product.title}</h2> <span>{product.price}</span>
+                <span><button type="button" className='btn btn-primary'>Add to Cart</button></span> 
+             </div>
+           </div>
         </div>
      </div>
  )    
