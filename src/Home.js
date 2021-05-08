@@ -3,26 +3,26 @@ import Cart from './product/Cart'
 import {useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 export default function Home({match}){
-    const [cart,setCart] = useState([]);
-
-
+    const [cart,setCart] = useState(localStorage.getItem('carts') ? JSON.parse(localStorage.getItem('carts') ) : []);
+    
     const addToCart = (data) => {
-        let newData = cart.findIndex((product) => {
+        let existingProduct = cart.findIndex((product) => {
                 return product.id === data.id
         });
-        if(newData === -1){
+        if(existingProduct === -1){
             setCart((cartData) => (
                 [...cartData, {
                     id: data.id,
                     title : data.title,
                     price : data.price,
+                    total_price : data.price,
                     quantity: 1
                 }]
             ))
         }else{
-           let existingProduct =  cart.findIndex((product) => (
-               product.id === data.id
-           ))
+        //    let existingProduct =  cart.findIndex((product) => (
+        //        product.id === data.id
+        //    ))
            cart[existingProduct].quantity += 1;
            setCart(cart)
         }
@@ -30,7 +30,7 @@ export default function Home({match}){
 
 
     useEffect(() => {
-        console.log(match.path);
+        localStorage.setItem('carts',JSON.stringify(cart))
     },[cart,match])
 
 
@@ -38,7 +38,7 @@ export default function Home({match}){
      <div>
          <div className='container'>
 
-             <button type="">
+             <button type="" className='my-3'>
                  <Link to='cart'>
                  Cart item {cart.length}
                  </Link>
