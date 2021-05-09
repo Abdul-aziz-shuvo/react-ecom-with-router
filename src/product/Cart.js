@@ -5,12 +5,14 @@ export default function Cart({cart}){
     const [totalPrice,setTotalPrice] = useState(0);
 
     useEffect(() => {
+        localStorage.setItem('carts',JSON.stringify(cart))
+
         let item_total = 0
         cartData.map((item) => (
             item_total += item.total_price
         ))
+       
         setTotalPrice(item_total)
-        localStorage.setItem('carts',JSON.stringify(cart))
      },[cartData,cart])
 
     const handleIncrement = (index) => {

@@ -24,6 +24,8 @@ export default function Home({match}){
         //        product.id === data.id
         //    ))
            cart[existingProduct].quantity += 1;
+           cart[existingProduct].total_price = cart[existingProduct].quantity * cart[existingProduct].price;
+           localStorage.setItem('carts',JSON.stringify(cart))
            setCart(cart)
         }
     }
