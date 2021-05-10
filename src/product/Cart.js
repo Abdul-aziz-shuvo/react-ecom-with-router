@@ -1,31 +1,33 @@
-import {useEffect,useState} from 'react'
-export default function Cart({cart}){
+import {useEffect,useState,useContext} from 'react'
+import {ProductContext} from '../context/ProductContext'
+export default function Cart(){
 
-    const [cartData,setCartData] = useState(cart);
+    const {cart,setCart} = useContext(ProductContext)
     const [totalPrice,setTotalPrice] = useState(0);
 
     useEffect(() => {
         localStorage.setItem('carts',JSON.stringify(cart))
 
         let item_total = 0
-        cartData.map((item) => (
+        cart.map((item) => (
             item_total += item.total_price
         ))
        
         setTotalPrice(item_total)
-     },[cartData,cart])
+        
+     },[cart])
 
     const handleIncrement = (index) => {
-          cartData[index].quantity += 1
-          cartData[index].total_price = cartData[index].quantity  * cartData[index].price
-          setCartData([...cartData])
+        cart[index].quantity += 1
+        cart[index].total_price = cart[index].quantity  * cart[index].price
+          setCart([...cart])
      }
 
      const handleDecrement = (index) => {
-        if(cartData[index].quantity > 1){
-            cartData[index].quantity -= 1
-            cartData[index].total_price = cartData[index].quantity  * cartData[index].price
-            setCartData([...cartData])
+        if(cart[index].quantity > 1){
+            cart[index].quantity -= 1
+            cart[index].total_price = cart[index].quantity  * cart[index].price
+            setCart([...cart])
          }
    }
 
@@ -41,7 +43,7 @@ export default function Cart({cart}){
                     </tr>
                 </thead>
                 <tbody>
-                    {cartData.map((product,index) => (
+                    {cart.map((product,index) => (
                         <tr key={product.id}>
                             <td>
                             {product.title}

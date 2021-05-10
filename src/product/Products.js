@@ -1,9 +1,10 @@
 import axios from 'axios';
-import {useState,useEffect} from 'react'
+import {useState,useEffect,useContext} from 'react'
 import {Link} from 'react-router-dom'
-export default function Products({addToCart}){
+import {ProductContext} from '../context/ProductContext'
+export default function Products(){
 
-
+    const {addToCart} = useContext(ProductContext)
     const [products,setProducts] = useState([]);
   
     useEffect(() => {
