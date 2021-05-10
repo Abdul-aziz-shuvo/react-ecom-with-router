@@ -34,35 +34,42 @@ export default function Cart(){
       
     return (
         <div>
-            <table className='table'>
-                <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {cart.map((product,index) => (
-                        <tr key={product.id}>
-                            <td>
-                            {product.title}
-                            </td>
-                            <td>
-                                <button type="button" onClick={() => handleIncrement(index)}>+</button>
-                                <span className='mx-4'>{product.quantity} </span>
-                                <button type="button"  onClick={() => handleDecrement(index)}>-</button>
-                            </td>
-                            <td>
-                              <p>{product.total_price === product.price ? (product.quantity *  product.price).toFixed(2) :  product.total_price.toFixed(2) }</p>
-                            </td>
+            <div className="container">
+                <button type="button" className='my-3'>
+                    
+                    Cart item {cart.length}
+                   
+                </button>
+                <table className='table'>
+                    <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
                         </tr>
-                    ))}   
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {cart.map((product,index) => (
+                            <tr key={product.id}>
+                                <td>
+                                {product.title}
+                                </td>
+                                <td>
+                                    <button type="button" onClick={() => handleIncrement(index)}>+</button>
+                                    <span className='mx-4'>{product.quantity} </span>
+                                    <button type="button"  onClick={() => handleDecrement(index)}>-</button>
+                                </td>
+                                <td>
+                                <p>{product.total_price === product.price ? (product.quantity *  product.price).toFixed(2) :  product.total_price.toFixed(2) }</p>
+                                </td>
+                            </tr>
+                        ))}   
+                    </tbody>
+                </table>
 
-            <div>
-                Total Price : {totalPrice.toFixed(2)}
+                <div>
+                    Total Price : {totalPrice.toFixed(2)}
+                </div>
             </div>
         </div>
     )

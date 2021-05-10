@@ -3,7 +3,7 @@ import './App.css';
 
 import Product from './product/Product'
 import Home from './Home'
-
+import Cart from './product/Cart'
 
 import React from "react";
 import {
@@ -23,7 +23,7 @@ function App() {
      <Switch>
         <Route path="/"  exact component={Home} />
         <Route path="/product/:id" component={Product} />
-        <Route path="/cart"  exact component={Home} />
+        <Route path="/cart"  exact component={Cart} />
       </Switch>
      </ProductProvider>
     </Router>
