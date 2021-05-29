@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-ecom-with-router/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/react-ecom-with-router/static/js/main.437caeda.chunk.js",
+    "main.js.map": "/react-ecom-with-router/static/js/main.437caeda.chunk.js.map",
+    "runtime-main.js": "/react-ecom-with-router/static/js/runtime-main.25446603.js",
+    "runtime-main.js.map": "/react-ecom-with-router/static/js/runtime-main.25446603.js.map",
+    "static/css/2.74c02967.chunk.css": "/react-ecom-with-router/static/css/2.74c02967.chunk.css",
+    "static/js/2.c89a1004.chunk.js": "/react-ecom-with-router/static/js/2.c89a1004.chunk.js",
+    "static/js/2.c89a1004.chunk.js.map": "/react-ecom-with-router/static/js/2.c89a1004.chunk.js.map",
+    "static/js/3.3ecd951e.chunk.js": "/react-ecom-with-router/static/js/3.3ecd951e.chunk.js",
+    "static/js/3.3ecd951e.chunk.js.map": "/react-ecom-with-router/static/js/3.3ecd951e.chunk.js.map",
+    "index.html": "/react-ecom-with-router/index.html",
+    "static/css/2.74c02967.chunk.css.map": "/react-ecom-with-router/static/css/2.74c02967.chunk.css.map",
+    "static/css/main.9d5b29c0.chunk.css.map": "/react-ecom-with-router/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.c89a1004.chunk.js.LICENSE.txt": "/react-ecom-with-router/static/js/2.c89a1004.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.25446603.js",
+    "static/css/2.74c02967.chunk.css",
+    "static/js/2.c89a1004.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.437caeda.chunk.js"
+  ]
+}
